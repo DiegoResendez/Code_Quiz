@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<header id="headerText">
+<nav class="highscoresAndTimer" id="highscoresAndTimer">
+    <div class="highscoresLink">
+        <a href="">View Highscores</a>
+    <a class="Timer" id="countdownTimer">Time: <span id="seconds">60</span></a>
+    </div>
+</nav>
+</header>
+
+<body>
+    <div class="container">
+
+        <div id="question-container" class="hide">
+            <div id="question">
+                <h1 class="questionsScreen" id="questionsScreen">
+                    Question text
+                </h1>
+            </div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn buttonAnswer" id="buttonA">Answer 1</button>
+                <button class="btn buttonAnswer" id="buttonB">Answer 2</button>
+                <button class="btn buttonAnswer" id="buttonC">Answer 3</button>
+                <button class="btn buttonAnswer" id="buttonD">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <h1 class="startScreen" id="startScreen">
+                Welcome to your Star Wars Quiz. You will have one minute to answer a series
+                of questions.  Your score will be presented to you upon completion.
+            </h1>
+            <button class="start-btn btn" id="start-btn">Start</button>
+        </div>
+
+        <div class="container Highscores hide" id="scoreboard">
+            <h1>Highscores</h1>
+        
+            <!-- Rendered Buttons will get Dumped Here  -->
+            <div id="buttons-view"></div>
+        
+            <form id="score-form">
+              <label for="user-input">Enter Name</label>
+              <input type="text" id="user-input">
+              <br>
+        
+              <!-- Button triggers new name to be added -->
+              <input class="btn" id="add-movie" type="submit" value="Enter Name">
+            </form>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
