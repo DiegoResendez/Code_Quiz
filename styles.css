@@ -36,6 +36,20 @@ background-color: #cccccc;
 .Timer {
     float: right;
 }
+
+#leaderBoard {
+    padding: 0;
+    margin: 0;
+    color: navy;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/4572042562-63dcd92c42-o-1519178707.jpg?resize=480:*");
+    background-color: #cccccc;
+}
+
 .container {
     width: 800px;
     max-width: 80%;
@@ -46,7 +60,7 @@ background-color: #cccccc;
     display: flex;
     justify-content: center;
 }
-.highscoresAndTimer {
+.highscoresAndTimer{
     width: 1000px;
     background-color: rgb(214, 214, 209);
     border-radius: 5px;
@@ -76,13 +90,13 @@ background-color: #cccccc;
     border-color: black;
     color: rgb(12, 1, 110);
 }
-.questionsScreen {
+.questionsScreen .Leaderboard {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#start-btn {
+#start-btn #go-back #delete-highscores{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20 px;

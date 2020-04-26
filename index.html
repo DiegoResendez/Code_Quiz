@@ -11,7 +11,7 @@
 <header id="headerText">
 <nav class="highscoresAndTimer" id="highscoresAndTimer">
     <div class="highscoresLink">
-        <a href="">View Highscores</a>
+        <button class="viewHighScores" id="viewHighScores">View Highscores</button>
     <a class="Timer" id="countdownTimer">Time: <span id="seconds">60</span></a>
     </div>
 </nav>
@@ -42,7 +42,8 @@
         </div>
 
         <div class="container Highscores hide" id="scoreboard">
-            <h1>Highscores</h1>
+            <h1>Your Score</h1>
+            <a class="userScore" id="userScore" type="text"></a>
         
             <!-- Rendered Buttons will get Dumped Here  -->
             <div id="buttons-view"></div>
@@ -53,9 +54,27 @@
               <br>
         
               <!-- Button triggers new name to be added -->
-              <input class="btn" id="add-movie" type="submit" value="Enter Name">
+              <input class="btn" id="add-score" type="submit" value="Enter-Name">
             </form>
 
+    </div>
+
+    <!-- Render Scoreboard -->
+    <!-- include a delete highscore button -->
+
+
+    <div class="container container-fluid Leaderboard hide" id="leaderBoard">
+        <h1>Leaderboard</h1>
+    
+        <form id="score-form">
+            <label for="score-input"></label>
+            <input type="text" id="score-input">
+            <br>
+
+        <div id="buttons-view">
+        <input class="btn" id="go-back" type="submit" value="Go Back">
+        <input class="btn" id="delete-highscores" type="submit" value="Delete">
+        </div>
     </div>
 
     <script src="script.js"></script>
