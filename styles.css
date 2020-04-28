@@ -23,11 +23,12 @@ background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/ima
 background-color: #cccccc;
 }
 
-/* #headerText {
-    display: block;
-    justify-content: center;
-    align-items: center;
-} */
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 20 px;
+    align-content: center;
+}
 
 .highscoresLink {
     justify-content: right;
@@ -40,14 +41,16 @@ background-color: #cccccc;
 #leaderBoard {
     padding: 0;
     margin: 0;
-    color: navy;
+    font-size: 200%;
+    color: rgb(235, 235, 241);
+    text-shadow: 2px 2px 8px rgb(10, 10, 10);
     display: grid;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/4572042562-63dcd92c42-o-1519178707.jpg?resize=480:*");
-    background-color: #cccccc;
+    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/4572042562-63dcd92c42-o-1519178707.jpg?resize=480:*"); */
+    background-color: #525151;
 }
 
 .container {
@@ -76,6 +79,15 @@ background-color: #cccccc;
     float: left;
 }
 
+.userScore {
+    color: rgb(8, 8, 8);
+    font-size: large;
+    font-size: 150%;
+    font-weight: bold;
+    padding: 10px 20 px;
+    align-content: center;
+
+}
 .btn {
     border: 1px solid;
     background-color: midnightblue;
@@ -86,11 +98,23 @@ background-color: #cccccc;
     outline: none;
 }
 
+#delete-highscores #go-back {
+    border: 1px solid;
+    background-color: white;
+    border-color: rgb(155, 158, 157);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: midnightblue;
+    outline: none;
+}
+
 .btn:hover {
     border-color: black;
     color: rgb(12, 1, 110);
 }
-.questionsScreen .Leaderboard {
+.questionsScreen .leaderBoard {
+    padding: 5px 10px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;

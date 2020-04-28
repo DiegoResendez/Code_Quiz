@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -41,7 +42,7 @@
             <button class="start-btn btn" id="start-btn">Start</button>
         </div>
 
-        <div class="container Highscores hide" id="scoreboard">
+        <div class="Highscores  hide" id="scoreboard">
             <h1>Your Score</h1>
             <a class="userScore" id="userScore" type="text"></a>
         
@@ -63,13 +64,13 @@
     <!-- include a delete highscore button -->
 
 
-    <div class="container container-fluid Leaderboard hide" id="leaderBoard">
+    <div class="container-fluid leaderBoard hide" id="leaderBoard">
         <h1>Leaderboard</h1>
     
-        <form id="score-form">
+        <!-- <form id="score-form">
             <label for="score-input"></label>
             <input type="text" id="score-input">
-            <br>
+            <br> -->
 
         <div id="buttons-view">
         <input class="btn" id="go-back" type="submit" value="Go Back">

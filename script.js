@@ -28,17 +28,12 @@ let interval;
 // const currentQuestionIndex
 
 // create an event listener for the score submit button
-goBackButton.addEventListener("click", )//refresh or go back to start
-viewHighScoresButton.addEventListener("click", renderScoreboard)
-deleteHighScoresButton.addEventListener("click", clearScoreboard)
-submitButton.addEventListener("click", loadScore)
+goBackButton.addEventListener("click", startGame);//refresh or go back to start
+viewHighScoresButton.addEventListener("click", renderScoreboard);
+deleteHighScoresButton.addEventListener("click", clearScoreboard);
+submitButton.addEventListener("click", loadScore);
 // in the event listener, you want to add in the algorithm for saving to local storage
 // window.location.reload();
-
-
-// create an event listener for clearHighScores button
-
-// create an event listener for viewHighScores button that renders the scoreboard to the page
 
 // create a function to render the scoreboard
 function renderScoreboard() {
@@ -51,8 +46,13 @@ function renderScoreboard() {
 }
 
 function loadScore(){
-    // add score to local storage create div for repository
+    setScore()
+        // add score to local storage create div for repository
+        localStorage.setItem(timerStart)
 
+
+    
+    console.log("Should set score")
 }
 
 // delete highscore function
@@ -79,11 +79,15 @@ let answerButton = document.getElementsByClassName("buttonAnswer")
             // endGame
             // clearInterval(interval)
             stopTimer();
+            $("#userScore").text(timerStart);
+            // setScore();
             // show your scoreboard?
             scoreboardElement.classList.remove("hide");
             questionContainerElement.classList.add("hide");
         }
-         console.log(timerElement)
+
+        
+         console.log(timerStart)
      }) 
  }
  
@@ -95,6 +99,8 @@ let answerButton = document.getElementsByClassName("buttonAnswer")
 function startGame() {
     startTimer();
     console.log("Started")
+    // document.getElementById("leaderBoard").style.display = "none";
+    leaderBoardElement.classList.add("hide")
     startButton.classList.add("hide")
     startScreen.classList.add("hide")
     scoreboardElement.classList.add("hide")
@@ -150,6 +156,8 @@ function getNextQuestion(){
 
 function setScore (){
     let finalScore = {name: userName.value, score: timerStart};
+ 
+
 let scoreboard = localStorage.getItem("Scoreboard");
 if(scoreboard){
     scoreboard = JSON.parse(scoreboard)
