@@ -10,18 +10,25 @@
 </head>
 
 <header id="headerText">
-<nav class="highscoresAndTimer" id="highscoresAndTimer">
-    <div class="highscoresLink">
-        <button class="viewHighScores" id="viewHighScores">View Highscores</button>
-    <a class="Timer" id="countdownTimer">Time: <span id="seconds">60</span></a>
-    </div>
-</nav>
+    <nav class="highscoresAndTimer" id="highscoresAndTimer">
+        <div class="highscoresLink">
+            <button class="viewHighScores" id="viewHighScores">View Highscores</button>
+            <a class="Timer" id="countdownTimer">Time: <span id="seconds">60</span></a>
+        </div>
+    </nav>
 </header>
 
 <body>
     <div class="container">
+        <div class="controls">
+            <h1 class="startScreen" id="startScreen">
+                Welcome to your Star Wars Quiz. You will have one minute to answer a series
+                of questions. Your score will be presented to you upon completion.
+            </h1>
+            <button class="start-btn btn" id="start-btn">Start</button>
+        </div>
 
-        <div id="question-container" class="hide">
+        <div id="question-container" class="questionContainer hide">
             <div id="question">
                 <h1 class="questionsScreen" id="questionsScreen">
                     Question text
@@ -34,51 +41,47 @@
                 <button class="btn buttonAnswer" id="buttonD">Answer 4</button>
             </div>
         </div>
-        <div class="controls">
-            <h1 class="startScreen" id="startScreen">
-                Welcome to your Star Wars Quiz. You will have one minute to answer a series
-                of questions.  Your score will be presented to you upon completion.
-            </h1>
-            <button class="start-btn btn" id="start-btn">Start</button>
-        </div>
 
-        <div class="Highscores  hide" id="scoreboard">
+        <div class="scoreboard hide" id="scoreboard">
             <h1>Your Score</h1>
             <a class="userScore" id="userScore" type="text"></a>
-        
-            <!-- Rendered Buttons will get Dumped Here  -->
-            <div id="buttons-view"></div>
-        
-            <form id="score-form">
-              <label for="user-input">Enter Name</label>
-              <input type="text" id="user-input">
-              <br>
-        
-              <!-- Button triggers new name to be added -->
-              <input class="btn" id="add-score" type="submit" value="Enter-Name">
-            </form>
 
-    </div>
+            <!-- Rendered Buttons will get Dumped Here   -->
+            <div id="buttons-view">
 
-    <!-- Render Scoreboard -->
-    <!-- include a delete highscore button -->
+                <form id="score-form">
+                    <label for="user-input">Enter Name</label>
+                    <input type="text" id="user-input">
+                    <br>
 
-
-    <div class="container-fluid leaderBoard hide" id="leaderBoard">
-        <h1>Leaderboard</h1>
-    
-        <!-- <form id="score-form">
-            <label for="score-input"></label>
-            <input type="text" id="score-input">
-            <br> -->
-
-        <div id="buttons-view">
-        <input class="btn" id="go-back" type="submit" value="Go Back">
-        <input class="btn" id="delete-highscores" type="submit" value="Delete">
+                    <!-- Button triggers new name to be added  -->
+                    <input class="btn" id="add-score" type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+    <div class="secondPage irrelevant-div">
+            <!-- Render Scoreboard -->
+            <!-- include a delete highscore button -->
+        <div class="container leaderBoard hide" id="leaderBoard">
+                <h1>Leaderboard</h1>
+
+        <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+            <div id="buttons-view">
+                <input class="btn" id="go-back" type="submit" value="Go Back">
+                <input class="btn" id="delete-highscores" type="submit" value="Delete">
+            </div>
+        </div>
+            <!-- <button class="newButton" id="newButton">show hide leaderBoard</button> -->
+    </div>
+
+
+        <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
