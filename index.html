@@ -19,9 +19,9 @@
 </header>
 
 <body>
-    <div class="container">
-        <div class="controls">
-            <h1 class="startScreen" id="startScreen">
+    <div class="container" id="mainContainer">
+        <div class="startScreen" id="startScreen">
+            <h1 class="welcomeMessage">
                 Welcome to your Star Wars Quiz. You will have one minute to answer a series
                 of questions. Your score will be presented to you upon completion.
             </h1>
@@ -55,23 +55,23 @@
                     <br>
 
                     <!-- Button triggers new name to be added  -->
-                    <input class="btn" id="add-score" type="submit" value="Submit">
+                    <input class="btn" id="add-score" type="submit" value="Add to Scoreboard">
                 </form>
             </div>
         </div>
     </div>
 
 
-    <div class="secondPage irrelevant-div">
+    <div class="secondPage irrelevant-div hide" id="leaderBoard">
             <!-- Render Scoreboard -->
             <!-- include a delete highscore button -->
-        <div class="container leaderBoard hide" id="leaderBoard">
+        <div class="leaderBoard">
                 <h1>Leaderboard</h1>
-
-        <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
+            <ol class="highest-scores" id="highest-scores">
+                <li type="text"></li>
+                <li type="text"></li>
+                <li type="text"></li>
+            </ol>
             <div id="buttons-view">
                 <input class="btn" id="go-back" type="submit" value="Go Back">
                 <input class="btn" id="delete-highscores" type="submit" value="Delete">
@@ -81,7 +81,7 @@
     </div>
 
 
-        <!-- <script src="script.js"></script> -->
+        <script src="script.js"></script>
 </body>
 
 </html>
