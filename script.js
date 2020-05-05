@@ -28,21 +28,17 @@ let interval;
 let inputName;
 let created = false;
 let reload = false;
-// let question = ;
-// let currentQuestionIndex;
 
-//                   (addEventListeners)
 
 startButton.addEventListener("click", startGame);
 viewHighScoresButton.addEventListener("click", viewLeaderBoard);
 addScoreButton.addEventListener("click", loadScore)
-goBackButton.addEventListener("click", reloadGame);//refresh or go back to start
+goBackButton.addEventListener("click", reloadGame);
 deleteHighScoresButton.addEventListener("click", clearScoreboard);
 userName.addEventListener("change", setUserName);
 
 function startGame() {
     startTimer();
-    // console.log("Started")
     startScreenElement.classList.add("hide");
     questionContainerElement.classList.remove("hide");
     setNextQuestion();
@@ -52,7 +48,6 @@ function startTimer() {
     interval = setInterval(function () {
         timerStart--;
         timerElement.textContent = timerStart     
-        // console.log(timerStart)
     }, 1000)
 }
 
@@ -61,7 +56,6 @@ function stopTimer() {
         clearInterval(interval)
     } else
     clearInterval(interval);
-    // console.log("stopTimer")
 }
 
 
