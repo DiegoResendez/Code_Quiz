@@ -9,6 +9,7 @@ const scoreboardElement = document.getElementById("scoreboard");
 const mainContainerElement = document.getElementById("mainContainer")
 const userName = document.getElementById("user-input");
 const startScreenElement = document.getElementById("startScreen");
+const highestScoresElement = document.getElementById("highest-scores");
 
 const buttonA = document.getElementById("buttonA");
 const buttonB = document.getElementById("buttonB");
@@ -24,7 +25,9 @@ const deleteHighScoresButton = document.getElementById("delete-highscores");
 let questionNumber = 0;
 let timerStart = 60;
 let interval;
-
+let inputName;
+let created = false;
+let reload = false;
 // let question = ;
 // let currentQuestionIndex;
 
@@ -35,20 +38,21 @@ viewHighScoresButton.addEventListener("click", viewLeaderBoard);
 addScoreButton.addEventListener("click", loadScore)
 goBackButton.addEventListener("click", reloadGame);//refresh or go back to start
 deleteHighScoresButton.addEventListener("click", clearScoreboard);
+userName.addEventListener("change", setUserName);
 
 function startGame() {
     startTimer();
-    console.log("Started")
+    // console.log("Started")
     startScreenElement.classList.add("hide");
     questionContainerElement.classList.remove("hide");
-    setNextQuestion()
+    setNextQuestion();
 }
 
 function startTimer() {
     interval = setInterval(function () {
         timerStart--;
         timerElement.textContent = timerStart     
-        console.log(timerStart)
+        // console.log(timerStart)
     }, 1000)
 }
 
@@ -57,7 +61,7 @@ function stopTimer() {
         clearInterval(interval)
     } else
     clearInterval(interval);
-    console.log("stopTimer")
+    // console.log("stopTimer")
 }
 
 
@@ -87,7 +91,7 @@ let answerButton = document.getElementsByClassName("buttonAnswer");
          console.log(answer)
          if (answer === "false"){
             timerStart = timerStart - 10;
-            console.log("if false")
+            // console.log("if false")
          } 
          if(questionNumber < question.length){
          console.log(questionNumber)
@@ -95,62 +99,120 @@ let answerButton = document.getElementsByClassName("buttonAnswer");
         } else{
             stopTimer();
             $("#userScore").text(timerStart);
-            setScore();
-            console.log("Score should populate");
+            // console.log(timerStart)
+            // setScore();
+            // console.log("Score should populate");
             showleaderBoard();
         }
-     }) 
- }
-
- function showleaderBoard(){
-    // show your scoreboard
-    console.log("hibbity dibbity")
-    // add and remove hides
-    questionContainerElement.classList.add("hide");
-    scoreboardElement.classList.remove("hide");
+    }) 
 }
+
+function showleaderBoard(){
+    scoreboardElement.classList.remove("hide");
+    questionContainerElement.classList.add("hide");
+    // show your scoreboard
+    // setScore();
+    // console.log("hibbity dibbity")
+    // add and remove hides
+}
+
 
 function setScore (){
-    let finalScore = {name: userName.value, score: timerStart};
-let scoreboard = localStorage.getItem("Scoreboard");
-if(scoreboard){
-    scoreboard = JSON.parse(scoreboard)
-    scoreboard.push(finalScore);
-} else(scoreboard = [finalScore]);
+    let finalScore = {name: inputName, score: timerStart};
+    let scoreboard = localStorage.getItem("Scoreboard");
+    // console.log(finalScore)
+    if(scoreboard){
+        scoreboard = JSON.parse(scoreboard)
+        scoreboard.push(finalScore);
+    } else(scoreboard = [finalScore]);
+    localStorage.setItem("Scoreboard", JSON.stringify(scoreboard))
 
-localStorage.setItem("Scoreboard", JSON.stringify(scoreboard))
 }
 
+function setUserName(e){
+    console.log(e.target.value)
+    inputName = e.target.value
+    setScore();
+    // let node = document.createElement("LI");                 // Create a <li> node
+    // let textnode = document.createTextNode(inputName);
+    // let textnode2 = document.createTextNode(timerStart);         // Create a text node
+    // node.appendChild(textnode);     
+    // node.appendChild(textnode2);                              // Append the text to <li>
+    // highestScoresElement.appendChild(node); 
+}
 
 function loadScore(){
-    event.preventDefault()
-        // add score to local storage create div for repository
-        // viewLeaderBoard()
-        // localStorage.setItem(timerStart, timerStart);
-        console.log("Should view Scoreboard")
-        mainContainerElement.classList.add("hide");
-        leaderBoardElement.classList.remove("hide");
+    event.preventDefault();
+    // add score to local storage create div for repository
+    // viewLeaderBoard()
+    // localStorage.setItem(timerStart, timerStart);
+    
+    // console.log("Should view Scoreboard")
+    mainContainerElement.classList.add("hide");
+    leaderBoardElement.classList.remove("hide");
+    if(reload){
+    let node = document.createElement("LI");                 // Create a <li> node
+    let textnode = document.createTextNode(inputName);
+    let textnode2 = document.createTextNode(timerStart);         // Create a text node
+    node.appendChild(textnode);     
+    node.appendChild(textnode2);                              // Append the text to <li>
+    highestScoresElement.appendChild(node); 
+}
+    questionNumber = 0;
+    timerStart = 60;
+    interval = null;
+    inputName = null;
+    timerElement.textContent = timerStart 
+    viewLeaderBoard();
 }
 
 function clearScoreboard() {
     // // delete highscore function
-    console.log("Should clear scoreboard")
-    // localStorage.setItem("Scoreboard", "[]");
+    // console.log("Should clear scoreboard")
+    localStorage.setItem("Scoreboard", "[]");
+    // highestScoresElement.clearChildren();
+
+    let child = highestScoresElement.lastElementChild;  
+    while (child) { 
+        highestScoresElement.removeChild(child); 
+        child = highestScoresElement.lastElementChild; 
+}
 }
 
 function reloadGame(){    
     // refresh browser
-    console.log("Refresh brower or loadStartGame")
+    // console.log("Refresh brower or loadStartGame")
+    startScreenElement.classList.remove("hide");
     mainContainerElement.classList.remove("hide");
     leaderBoardElement.classList.add("hide");
+    scoreboardElement.classList.add("hide");
+    reload = true;
+
 }
 
 
 function viewLeaderBoard(){
     //hide startScreen and unhide leaderBoard
-    console.log("Should go to Leaderboard")
+    // console.log("Should go to Leaderboard")
     mainContainerElement.classList.add("hide");
     leaderBoardElement.classList.remove("hide");
+    //append element to list
+
+    //retrieve scoreboard
+    let localStorageValues = JSON.parse(localStorage.getItem("Scoreboard"));
+    console.log(created, "total")
+    if(localStorageValues != null && created == false){
+        for(i = 0; i < localStorageValues.length; i++){
+                let node = document.createElement("LI");                 // Create a <li> node
+                let textnode = document.createTextNode(localStorageValues[i].name);
+                let textnode2 = document.createTextNode(localStorageValues[i].score);         // Create a text node
+                node.appendChild(textnode);     
+                node.appendChild(textnode2);                              // Append the text to <li>
+                highestScoresElement.appendChild(node); 
+        }
+created = true
+    }
+
 }
 
 
