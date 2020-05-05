@@ -10,6 +10,6 @@ Once the User has completed all questions the time remaining on the timer will b
 
 The User will then be given an option to save their name to the leaderboard.
 
-
+![](images/Quiz_Screenshot.PNG)
 
 
